@@ -3,8 +3,6 @@ import loginStyle from "./login-style";
 
 export class MainPage2 extends LitElement {
 
-
-
     static get styles(){
         return[loginStyle]
     }
@@ -65,8 +63,7 @@ export class MainPage2 extends LitElement {
             <button class="bg-icon text-white p-2 text-big border-10 float-end px-5">10:00:00 <i class="fa-solid fa-clock fa-spin"></i></button>
             </div>
             <div class="bg-light mt-3 h-100 border border-dark border-20 d-flex flex-column">
-            <div class="h-75 m-3 border-dark border">
-                
+            <div class="h-75 m-3 border-dark border"> 
             </div>
             <div class="h-25 m-3 border-dark border">
                 
