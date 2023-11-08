@@ -2,10 +2,7 @@ import { LitElement, html } from "lit-element";
 import loginStyle from "./login-style";
 import { MainPage2 } from "./main-2";
 
-
 export class MainPage extends LitElement {
-  
-  
   constructor(){
     super();
     this.objetoUsuarios={
@@ -81,9 +78,6 @@ export class MainPage extends LitElement {
           }
         ]
       }
-
-    
-
       this.usuariosConectados=this.calcularusuariosConectados();
       this.usuariosAusentes=this.calcularusuariosAusentes();
       this.usuariosLlamados=0
@@ -95,10 +89,7 @@ export class MainPage extends LitElement {
       this.tablaFiltradaCamapaña='';
       this.tablaEquipos='';
 
-
   }
-
-
   static get properties(){
     return{
         usuariosConectados:{
@@ -152,8 +143,6 @@ calcularusuariosAusentes(){
   return usuariosAusentes
 }
 
-
-
 calcularCamapañasDesactivadas(){
   let  campañasDesactivadas = 0;
   for (let camapaña of this.objetoUsuarios.Camapañas) {
@@ -178,7 +167,6 @@ getCampañaActiva(campañaId) {
   const campaña = this.objetoUsuarios.Camapañas.find(camapañaActiva => camapañaActiva.id === campañaId);
   return campaña ? campaña.estado === '1' : false;
 }
-
 
   mostrarUsuarios(y){
     
@@ -228,7 +216,6 @@ getCampañaActiva(campañaId) {
         )}
       </table>
       `
-      
     }
     return this.hola
     
@@ -300,7 +287,6 @@ getCampañaActiva(campañaId) {
     modal.style.display = "none";
     modal.style.background = "none";
   }
-
   abrirAgregarEquipo() {
     const modal = this.shadowRoot.querySelector(`#modalAgregarEquipo`);
     modal.style.display = "block";
@@ -321,8 +307,6 @@ getCampañaActiva(campañaId) {
     let estadoInput=this.shadowRoot.querySelector("#estado");
     let idCampaña=this.shadowRoot.querySelector('#idcampaña')
     let campañaInput=this.shadowRoot.querySelector("#campaña");
-
-
     let nombre = nombreInput.value;
     let telefono = telefonoInput.value;
     let direccion = direccionInput.value;
@@ -356,10 +340,7 @@ getCampañaActiva(campañaId) {
     this.mostrarUsuarios(1)
     this.requestUpdate();
     this.cerrarAgregarUsuario();
-
-
   }
-
   agregarCampaña(){
     let nombreInput=this.shadowRoot.querySelector("#nombrecampaña");
     let directorInput=this.shadowRoot.querySelector("#director");
@@ -368,8 +349,6 @@ getCampañaActiva(campañaId) {
     let estadocampañaInput=this.shadowRoot.querySelector('#estadocampaña');
     let fechaInicioInput=this.shadowRoot.querySelector("#fechaInicio");
     let fechaFinInput=this.shadowRoot.querySelector("#fechaFin");
-
-
     let nombre = nombreInput.value;
     let director = directorInput.value;
     let empresa = empresaInput.value;
@@ -424,7 +403,6 @@ getCampañaActiva(campañaId) {
     let integrante2 = integrante2Input.value;
     let integrante3 =integrante3Input.value;
     let integrante4 = integrante4Input.value;
-
 
     let id=this.objetoUsuarios.Equipos.length+1
     console.log(id)
@@ -540,9 +518,7 @@ getCampañaActiva(campañaId) {
     document.body.appendChild(mainPage2);
   }
   filtrarUsuPorCampaña(y){
-
     this.hola=html``
-  
     if(y==1){  
       this.tablaFiltradaCamapaña=html``
       this.tablaEquipos=html``
@@ -594,9 +570,7 @@ getCampañaActiva(campañaId) {
         this.mostrarUsuarios(1)
       }
     }
-      
     return this.tablaFiltrada
-
   }
 
   cambiarEstadoAActivo(idCampaña){
@@ -611,8 +585,6 @@ getCampañaActiva(campañaId) {
     this.mostrarTablaCampañas(1)
     this.campañasActivas=this.calcularCampañasActivas()
   }
-
-
   mostrarTablaCampañas(y){
     if(y==1){
       this.tablaFiltrada=html``
@@ -707,7 +679,7 @@ getCampañaActiva(campañaId) {
               
               <button class="w-100 mt-3 p-3 text-big text-start border-10 border-0" @click=${(e)=>this.mostrarTablaCampañas(1)}><i class="fas fa-user mx-3"></i>Campañas</button>
             </div>
-              
+          
             <div class="d-flex">
               
               <button class="w-100 mt-3 p-3 text-big text-start border-10 border-0" @click=${(e)=>this.mostrarTablaEquipos(1)}><i class="fas fa-user mx-3"></i>Equipos</button>
